@@ -46,11 +46,12 @@ func (w *wsConn) Handle() {
 		}
 
 		// 只处理文本消息
-		if message.MsgType != websocket.TextMessage {
-			continue
-		}
+		//if message.MsgType != websocket.TextMessage {
+		//	continue
+		//}
 
 		switch message.MsgType {
+		// 处理ping请求
 		case websocket.PingMessage:
 			resp = w.handlePing()
 		case websocket.TextMessage:

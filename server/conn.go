@@ -19,7 +19,7 @@ type wsConn struct {
 }
 
 // 读循环
-func (w *wsConn) readloop() {
+func (w *wsConn) readLoop() {
 	var (
 		msgType int
 		msgData []byte
@@ -42,7 +42,7 @@ func (w *wsConn) readloop() {
 }
 
 // 写循环
-func (w *wsConn) writeloop() {
+func (w *wsConn) writeLoop() {
 	var (
 		message *wsMessage
 		err     error
@@ -70,8 +70,8 @@ func InitWsConn(wsSocket *websocket.Conn) *wsConn {
 		lastHeartbeatTime: time.Now(),
 	}
 
-	go w.readloop()
-	go w.writeloop()
+	go w.readLoop()
+	go w.writeLoop()
 	return w
 }
 
